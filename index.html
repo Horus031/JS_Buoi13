@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    h1 {
+      margin: 0;
+    }
+
+    input {
+      margin-bottom: 8px;
+      padding: 4px 12px;
+      width: 200px;
+      border-radius: 10px;
+    }
+
+    button {
+      padding: 4px 12px;
+    }
+
+    #form1 {
+      display: flex;
+      width: 60%;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 50px;
+    }
+
+    #form1 div:last-child {
+      border: 1px solid #000;
+      border-radius: 10px;
+      padding: 8px;
+    }
+
+    #connectionAmountDiv {
+      display: none;
+    }
+  </style>
+  <body>
+    <h1>Bài 1: Quản lý tuyển sinh</h1>
+    <div id="form1">
+      <div>
+        <label for="benchmark">Nhập điểm chuẩn của hội động </label>
+        <input
+          type="text"
+          name="benchmark"
+          id="benchmark"
+          placeholder="Nhập điểm chuẩn của hội đồng"
+        />
+        <br />
+        <label for="firstMark">Nhập điểm thứ nhất </label>
+        <input
+          type="text"
+          name="firstMark"
+          id="firstMark"
+          placeholder="Nhập điểm môn thứ 1"
+        />
+        <br />
+        <label for="secondMark">Nhập điểm thứ hai </label>
+        <input
+          type="text"
+          name="secondMark"
+          id="secondMark"
+          placeholder="Nhập điểm môn thứ 2"
+        />
+        <br />
+        <label for="thirdMark">Nhập điểm thứ ba </label>
+        <input
+          type="text"
+          name="thirdMark"
+          id="thirdMark"
+          placeholder="Nhập điểm môn thứ 3"
+        />
+        <br />
+        <label for="priorityArea"
+          >Chọn khu vực ưu tiên (Chọn X nếu không thuộc khu vực nào)
+        </label>
+        <select name="priorityArea" id="priorityArea">
+          <option value="X">X</option>
+          <option value="A">A</option>
+          <option value="B">B</option>
+          <option value="C">C</option>
+        </select>
+        <br />
+        <label for="priorityArea"
+          >Chọn đối tượng ưu tiên (Chọn 0 nếu không thuộc đối tượng ưu tiên)
+        </label>
+        <select name="priorityObject" id="priorityObject">
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+        <br />
+
+        <button type="button" id="checkBtn" onclick="form1OnSubmit()">
+          Kiểm tra
+        </button>
+      </div>
+      <div>
+        <p id="benchmarkInfo">Điểm chuẩn của hội đồng:</p>
+        <p id="markInfo">Điểm tổng kết của bạn:</p>
+        <p id="priorityInfo">Điểm khu vực ưu tiên:</p>
+        <p id="finalScoreInfo">Tổng điểm</p>
+        <p id="resultInfo">Rớt hay đậu</p>
+      </div>
+    </div>
+    <hr />
+    <h1>Bài 2: Tính tiền điện</h1>
+    <form id="form2">
+      <div>
+        <label for="ex2-fullname">Nhập họ tên</label>
+        <input
+          type="text"
+          name="ex2-fullname"
+          id="ex2-fullname"
+          placeholder="Nhập họ tên"
+        />
+        <br />
+        <label for="electricValue">Nhập số Kw tiêu thụ</label>
+        <input
+          type="number"
+          name="electricValue"
+          id="electricValue"
+          placeholder="Nhập số Kw"
+        />
+        <br />
+        <button type="button" id="electricCalcBtn" onclick="form2OnSubmit()">
+          Tính tiền điện
+        </button>
+      </div>
+      <p id="electricInfo"></p>
+    </form>
+    <hr />
+    <h1>Bài 3: Tính thuế thu nhập cá nhân</h1>
+    <form action="" id="form3">
+      <div>
+        <label for="ex3-fullname">Nhập họ tên</label>
+        <input
+          type="text"
+          name="ex3-fullname"
+          id="ex3-fullname"
+          placeholder="Nhập họ tên"
+        />
+        <br />
+        <label for="annualIncome">Nhập tổng thu nhập năm:</label>
+        <input
+          type="number"
+          name="annualIncome"
+          id="annualIncome"
+          placeholder="Nhập tổng thu nhập năm"
+        />
+        <br />
+        <label for="dependentPerson">Nhập số người phụ thuộc:</label>
+        <input
+          type="number"
+          name="dependentPerson"
+          id="dependentPerson"
+          placeholder="Nhập số người phụ thuộc"
+        />
+        <br />
+        <button type="button" id="electricCalcBtn" onclick="form3OnSubmit()">
+          Tính thuế thu nhập cá nhân
+        </button>
+      </div>
+      <p id="taxInfo"></p>
+    </form>
+    <hr />
+    <h1>Bài 4: Tính tiền cáp</h1>
+    <form action="" id="form4">
+      <div>
+        <label for="customerCode">Nhập mã khách hàng: </label>
+        <input
+          type="number"
+          name="customerCode"
+          id="customerCode"
+          placeholder="Nhập mã khách hàng"
+        />
+        <br />
+        <label for="customerType">Chọn loại khách hàng</label>
+        <select name="customerType" id="customerType" onchange="typeOnChange()">
+          <option value="1">Nhà dân</option>
+          <option value="2">Doanh nghiệp</option>
+        </select>
+        <br />
+        <div id="connectionAmountDiv">
+          <label for="connectionAmount">Nhập số kết nối: </label>
+          <input
+            type="number"
+            name="connectionAmount"
+            id="connectionAmount"
+            placeholder="Nhập số kết nối"
+          />
+        </div>
+        <br />
+        <label for="advancedConnection">Nhập số kênh cao cấp</label>
+        <input
+          type="number"
+          name="advancedConnection"
+          id="advancedConnection"
+          placeholder="Nhập số kênh cao cấp"
+        />
+
+        <button type="button" id="electricCalcBtn" onclick="form4OnSubmit()">
+          Tính tiền cáp
+        </button>
+      </div>
+      <p id="cableInfo"></p>
+    </form>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <script src="./functions.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>
